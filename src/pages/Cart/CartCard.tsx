@@ -6,7 +6,13 @@ import { TProduct } from "../../types/TProduct";
 const CartCard = () => {
   const cartCtx = useContext(cartContext);
 
-  const quantityHandler = (isAdding: boolean, product: TProduct) => {};
+  const quantityHandler = (isAdding: boolean, product: TProduct) => {
+    if (isAdding) {
+      cartCtx.addItem(product);
+    } else {
+      cartCtx.subtractItem(product.id);
+    }
+  };
 
   return (
     <div className="flex flex-col pt-7 bg-slate-300">
@@ -47,8 +53,12 @@ const CartCard = () => {
                         : "bg-white dark:bg-neutral-600"
                     } dark:border-neutral-500 `}
                   >
-                    <td className="px-6 py-4 font-medium">{i + 1}</td>
-                    <td className="px-6 py-4">{product.title}</td>
+                    <td className="px-6 py-4 font-medium">
+                      {i + 1}
+                    </td>
+                    <td className="px-6 py-4">
+                      {product.title}
+                    </td>
                     <td className="px-6 py-4">{product.description}</td>
                     <td className="whitespace-nowrap px-6 py-4 ">
                       <button
@@ -78,7 +88,11 @@ const CartCard = () => {
                       {(product.quantity * product.price).toFixed(2)}
                     </td>
                     <td className="whitespace-nowrap px-6 py-4">
-                      <button onClick={() => {}}>
+                      <button
+                        onClick={() => {
+                          cartCtx.deleteItem(product.id);
+                        }}
+                      >
                         <svg
                           className="fill-black"
                           xmlns="http://www.w3.org/2000/svg"
