@@ -1,4 +1,4 @@
-import { ReactNode, useReducer } from "react";
+import React, { ReactNode, useReducer } from "react";
 import { TProduct } from "../../types";
 import { Cart, CartActions, CartContextType } from "../../types/TCart";
 import CartContext from "./cart-context";
@@ -74,10 +74,10 @@ const cartReducer = (
       (item) => item.id === action.id
     );
     const existingItem = state.items[existingCartItemIndex];
-    const updatedTotalAmount = state.totalAmount - (existingItem.price* existingItem.quantity);
+    const updatedTotalAmount =
+      state.totalAmount - existingItem.price * existingItem.quantity;
 
-    let updatedItems;
-    updatedItems = state.items.filter((item) => item.id !== action.id);
+    const updatedItems = state.items.filter((item) => item.id !== action.id);
 
     return {
       items: updatedItems,
