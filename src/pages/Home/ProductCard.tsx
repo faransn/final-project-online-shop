@@ -5,7 +5,7 @@ import { TProduct } from "../../types";
 const ProductCard: FC<{ product: TProduct }> = ({ product }) => {
   const cartCtx = useContext(cartContext);
 
-  const addToCartHandler = () => {    
+  const addToCartHandler = () => {
     cartCtx.addItem(product);
   };
 
@@ -20,7 +20,9 @@ const ProductCard: FC<{ product: TProduct }> = ({ product }) => {
       </div>
       <h5 className="h-1/6">{product.title}</h5>
       <h6 className="h-1/6">{product.category}</h6>
-      <p className="h-2/6 overflow-auto text-justify">{product.description}</p>
+      <p className="h-2/6 overflow-auto text-justify">
+        {product.description}
+      </p>
       <div className="flex justify-between items-center">
         <div className="inline-block">price {product.price}$</div>
         <button
