@@ -1,8 +1,13 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
+import cartContext from "../../store/Cart/cart-context";
 import { TProduct } from "../../types";
 
 const ProductCard: FC<{ product: TProduct }> = ({ product }) => {
-  const addToCartHandler = () => {};
+  const cartCtx = useContext(cartContext);
+
+  const addToCartHandler = () => {    
+    cartCtx.addItem(product);
+  };
 
   return (
     <div className=" shadow-xl flex flex-col justify-between p-2">
