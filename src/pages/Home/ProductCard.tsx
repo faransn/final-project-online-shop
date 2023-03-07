@@ -10,20 +10,20 @@ const ProductCard: FC<{ product: TProduct }> = ({ product }) => {
   };
 
   return (
-    <div className=" shadow-xl flex flex-col justify-between p-2">
-      <div className="flex justify-center h-2/6 ">
+    <div className=" shadow-xl flex flex-col p-2">
+      <div className="flex justify-center h-40 ">
         <img
           src={product.image}
           alt="product"
           className="w-fit object-scale-down"
         />
       </div>
-      <h5 className="h-1/6">{product.title}</h5>
-      <h6 className="h-1/6">{product.category}</h6>
-      <p className="h-2/6 overflow-auto text-justify">
+      <h5 className="h-28 mt-4">{product.title}</h5>
+      <h6 className="h-16 mt-4">{product.category}</h6>
+      <p className="h-auto text-justify">
         {product.description}
       </p>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mt-auto">
         <div className="inline-block">price {product.price}$</div>
         <button
           onClick={addToCartHandler}
