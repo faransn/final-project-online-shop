@@ -16,6 +16,6 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "no-console": "warn"
+    "no-console": "error"
   }
 }
