@@ -16,7 +16,6 @@ export const useProducts = () => {
         setLoading(false);
       } catch (error) {
         setLoading(false);
-        console.error(error);
       }
     };
     fetchProducts();
