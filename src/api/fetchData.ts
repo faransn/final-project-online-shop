@@ -5,7 +5,6 @@ const fetchData = async (url: string) => {
     });
     return data.json();
   } catch (error) {
-    console.log(error);
     return [];
   }
 };

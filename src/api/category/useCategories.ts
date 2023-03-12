@@ -15,7 +15,6 @@ export const useCategories = () => {
         setLoading(false);
       } catch (error) {
         setLoading(false);
-        console.error(error);
       }
     };
     fetchCategories();
